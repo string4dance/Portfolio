@@ -70,7 +70,7 @@ body {
     align-items: center;
     margin: 0;
     font-size: 45px;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.753);
     padding: 150px 0 130px 0;
     height: 100vh;
     width: 100%;
@@ -89,10 +89,45 @@ body {
     cursor: pointer;
     background-color: transparent;
     border: none;
+    height: 30px;
   }
   .menu__item {
-    font-size: 18px;
-    color: #fff;
+    font-size: 0;
+    height: 5px;
+    width: 30px;
+    background-color: #fff;
+    display: block;
+    position: relative;
+    transition: all 0.3s linear;
+  }
+  .menu__item::before,
+  .menu__item::after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    background-color: #fff;
+  }
+  .menu__item::before {
+    top: 10px;
+    left: 0;
+  }
+  .menu__item::after {
+    bottom: 10px;
+    left: 0;
+  }
+  .menu__active .menu__item {
+    height: 0;
+  }
+  .menu__active .menu__item::before {
+    top: 0;
+    left: 0;
+    transform: rotate(-45deg);
+  }
+  .menu__active .menu__item::after {
+    transform: rotate(45deg);
+    top: 0;
+    left: 0;
   }
 }
 .home {
